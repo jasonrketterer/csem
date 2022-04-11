@@ -97,7 +97,7 @@ struct sem_rec *call(char *f, struct sem_rec *args)
 {
   struct id_entry *ie;
   struct sem_rec *t;
-  int ret_type, argnum, temp;
+  int ret_type, argnum = 0, temp;
 
   // lookup function to get its return type and width(num of params)
   ie = lookup(slookup(f),0);

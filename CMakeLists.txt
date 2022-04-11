@@ -7,9 +7,9 @@ set(CMAKE_C_FLAGS "-g -O0 -DDEBUG -Wpointer-to-int-cast")
 add_definitions(-DLEFTTORIGHT)
 add_definitions(-DSPARC)
 
-if (${CMAKE_SYSTEM_NAME} MATCHES "Darwin")
-    set(BISON_EXECUTABLE /usr/local/opt/bison/bin/bison)
-endif()
+#if (${CMAKE_SYSTEM_NAME} MATCHES "Darwin")
+set(BISON_EXECUTABLE /Users/jasonketterer/Downloads/bison-3.8.2/src/bison)
+#endif()
 
 find_package(BISON)
 
@@ -36,7 +36,6 @@ set (PROJECT_NAME_HEADERS
         )
 
 include_directories(${CMAKE_CURRENT_BINARY_DIR} ${CMAKE_BINARY_DIR} ${CMAKE_SOURCE_DIR})
-add_executable(csem ${PROJECT_NAME_SOURCES} ${PROJECT_NAME_HEADERS}
-        ${BISON_MyParser_OUTPUTS})
+add_executable(csem ${PROJECT_NAME_SOURCES} ${PROJECT_NAME_HEADERS} ${BISON_MyParser_OUTPUTS})
 
 target_link_libraries(csem ${BISON_LIBRARIES})
